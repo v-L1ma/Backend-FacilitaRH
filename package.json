@@ -1,0 +1,25 @@
+{
+  "dependencies": {
+    "@prisma/client": "^6.4.0",
+    "bcryptjs": "^3.0.2",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
+    "prisma": "^6.4.0"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^5.0.2",
+    "@types/bcryptjs": "^2.4.6",
+    "@types/express": "^5.0.0",
+    "@types/jsonwebtoken": "^9.0.8",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.7.3"
+  },
+  "name": "Backend-FacilitaRH",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Vinicius Lima <102876820+v-L1ma@users.noreply.github.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "ts-node-dev --respawn --transpile-only --files src/index.ts"
+  }
+}

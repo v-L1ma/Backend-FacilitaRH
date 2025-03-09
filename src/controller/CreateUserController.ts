@@ -6,8 +6,6 @@ export class CreateUserController {
     async create(req:Request, res: Response):Promise<Response>{
         const {name, email , password} = req.body;
 
-        
-
         const isUserRegistered = await prisma.user.findUnique({
             where: {email}
         })

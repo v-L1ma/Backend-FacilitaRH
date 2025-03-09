@@ -4,6 +4,7 @@ import { prisma } from "../utils/prisma";
 export class CreateApplicationController {
   async apply(req: Request, res: Response):Promise<Response> {
     const {
+      vacancyID,
       nomeCompleto,
       email,
       telefone,
@@ -36,6 +37,7 @@ export class CreateApplicationController {
   
       const application = await prisma.application.create({
         data: {
+        vacancyID,  
         nomeCompleto,
         email,
         telefone,

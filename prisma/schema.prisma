@@ -35,7 +35,7 @@ model Application {
   situacao String
   escolaridade String
   curso String
-  instituição String
+  instituicao String
   dataInicioEstudo String
   dataTerminoEstudos String
 }

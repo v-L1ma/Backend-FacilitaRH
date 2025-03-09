@@ -5,12 +5,16 @@ import { AuthUserController } from "../controller/AuthUserController";
 import { AuthMiddleware } from "../middleware/auth";
 import { CreateApplicationController } from "../controller/CreateApplicationController";
 import { GetApplicationsController } from "../controller/GetApplicationsController";
+import { CreateVacancyController } from "../controller/CreateVacancyController";
+import { GetVacancyController } from "../controller/GetVacancyControlller";
 
 const createUserController = new CreateUserController();
 const getUserController = new GetUserController();
 const authUserController = new AuthUserController();
 const createApplicationController = new CreateApplicationController();
 const getApplicationsController = new GetApplicationsController();
+const createVacancyController = new CreateVacancyController();
+const getVacancyController = new GetVacancyController();
 
 export const router = Router();
 
@@ -23,3 +27,7 @@ router.post("/users/auth", (req, res) => {authUserController.authenticate(req, r
 router.post("/apply", (req,res)=>{createApplicationController.apply(req,res)});
 
 router.get("/applications", (req,res)=>{getApplicationsController.get(req,res)});
+
+router.post("/vacancies", (req,res)=>{createVacancyController.create(req,res)});
+
+router.get("/vacancies", (req,res)=>{getVacancyController.get(req,res)})

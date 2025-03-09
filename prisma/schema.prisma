@@ -39,3 +39,19 @@ model Application {
   dataInicioEstudo String
   dataTerminoEstudos String
 }
+
+model Vacancy {
+  id Int @id @default(autoincrement())
+  titulo String
+  qtdeVagas Int
+  descricao String
+  setor String
+  senioridade String
+  diversidade String
+  pcd String
+  salario String
+  contrato String
+  turno String
+  local String
+  endereco String
+}

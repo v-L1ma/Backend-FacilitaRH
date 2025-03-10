@@ -18,6 +18,8 @@ export class CreateVacancyController{
             local,
             endereco} = req.body;
 
+    
+
         const vacancy = await prisma.vacancy.create({
             data: {
                 titulo,

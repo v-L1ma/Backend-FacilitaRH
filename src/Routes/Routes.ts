@@ -30,4 +30,4 @@ router.get("/applications", (req,res)=>{getApplicationsController.get(req,res)})
 
 router.post("/vacancies", (req,res)=>{createVacancyController.create(req,res)});
 
-router.get("/vacancies", (req,res)=>{getVacancyController.get(req,res)})
+router.get("/vacancies", (req,res)=>{getVacancyController.get(req,res)});

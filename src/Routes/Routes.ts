@@ -7,6 +7,7 @@ import { CreateApplicationController } from "../controller/CreateApplicationCont
 import { GetApplicationsController } from "../controller/GetApplicationsController";
 import { CreateVacancyController } from "../controller/CreateVacancyController";
 import { GetVacancyController } from "../controller/GetVacancyControlller";
+import { GetVacancyInfoController } from "../controller/GetVacancyInfoController";
 
 const createUserController = new CreateUserController();
 const getUserController = new GetUserController();
@@ -15,6 +16,7 @@ const createApplicationController = new CreateApplicationController();
 const getApplicationsController = new GetApplicationsController();
 const createVacancyController = new CreateVacancyController();
 const getVacancyController = new GetVacancyController();
+const getVacancyInfoController = new GetVacancyInfoController();
 
 export const router = Router();
 
@@ -24,10 +26,12 @@ router.get("/users", AuthMiddleware, (req, res) => {getUserController.showUsers(
 
 router.post("/users/auth", (req, res) => {authUserController.authenticate(req, res)});
 
-router.post("/apply", (req,res)=>{createApplicationController.apply(req,res)});
+router.post("/apply/:vacancyID", (req,res)=>{createApplicationController.apply(req,res)});
 
 router.get("/applications", (req,res)=>{getApplicationsController.get(req,res)});
 
 router.post("/vacancies", (req,res)=>{createVacancyController.create(req,res)});
 
-router.get("/vacancies", (req,res)=>{getVacancyController.get(req,res)})
+router.get("/vacancies", (req,res)=>{getVacancyController.get(req,res)});
+
+router.get("/vacancies/:vacancyID", (req,res)=>{getVacancyInfoController.get(req,res)});

@@ -7,18 +7,18 @@ export class GetVacancyInfoController{
 
         const {vacancyID} = req.params;
         
+        
         try{
             const vacancy = await prisma.vacancy.findUnique({
-                where: {id: parseInt(vacancyID)},
+                where: {id: Number(vacancyID)},
             })
 
             return res.status(200).json({vacancy: vacancy});
 
         } catch(error){
+            console.log(error);
             return res.status(400).json({msg:"an error occured"});
         }
-
-       
     }
 
 }

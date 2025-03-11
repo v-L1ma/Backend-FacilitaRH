@@ -4,7 +4,6 @@ import { prisma } from "../utils/prisma";
 export class CreateApplicationController {
   async apply(req: Request, res: Response):Promise<Response> {
     const {
-      vacancyID,
       nomeCompleto,
       email,
       telefone,
@@ -23,6 +22,9 @@ export class CreateApplicationController {
       dataTerminoEstudos,
     } = req.body;
 
+    const {vacancyID} = req.params;
+    const id = Number(vacancyID);
+
     try {
       
       const isAlreadyApplied = await prisma.application.findFirst({
@@ -37,7 +39,7 @@ export class CreateApplicationController {
   
       const application = await prisma.application.create({
         data: {
-        vacancyID,  
+        vacancyID: id,  
         nomeCompleto,
         email,
         telefone,

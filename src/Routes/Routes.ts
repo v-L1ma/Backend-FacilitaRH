@@ -8,6 +8,7 @@ import { GetApplicationsController } from "../controller/GetApplicationsControll
 import { CreateVacancyController } from "../controller/CreateVacancyController";
 import { GetVacancyController } from "../controller/GetVacancyControlller";
 import { GetVacancyInfoController } from "../controller/GetVacancyInfoController";
+import { DeleteVacancyController } from "../controller/DeleteVacancyController";
 
 const createUserController = new CreateUserController();
 const getUserController = new GetUserController();
@@ -17,6 +18,7 @@ const getApplicationsController = new GetApplicationsController();
 const createVacancyController = new CreateVacancyController();
 const getVacancyController = new GetVacancyController();
 const getVacancyInfoController = new GetVacancyInfoController();
+const deleteVacancyController = new DeleteVacancyController();
 
 export const router = Router();
 
@@ -35,3 +37,5 @@ router.post("/vacancies", (req,res)=>{createVacancyController.create(req,res)});
 router.get("/vacancies", (req,res)=>{getVacancyController.get(req,res)});
 
 router.get("/vacancies/:vacancyID", (req,res)=>{getVacancyInfoController.get(req,res)});
+
+router.delete("/vacancies/:vacancyID", (req,res)=>{deleteVacancyController.delete(req,res)});

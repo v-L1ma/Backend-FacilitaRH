@@ -18,7 +18,7 @@ const getVacancyController = new GetVacancyController();
 
 export const router = Router();
 
-router.post("/create", (req, res) => {createUserController.create(req, res)});
+router.post("/users", (req, res) => {createUserController.create(req, res)});
 
 router.get("/users", AuthMiddleware, (req, res) => {getUserController.showUsers(req, res)});
 
@@ -31,3 +31,4 @@ router.get("/applications", (req,res)=>{getApplicationsController.get(req,res)})
 router.post("/vacancies", (req,res)=>{createVacancyController.create(req,res)});
 
 router.get("/vacancies", (req,res)=>{getVacancyController.get(req,res)});
+

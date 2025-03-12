@@ -22,7 +22,7 @@ const deleteVacancyController = new DeleteVacancyController();
 
 export const router = Router();
 
-router.post("/create", (req, res) => {createUserController.create(req, res)});
+router.post("/users", (req, res) => {createUserController.create(req, res)});
 
 router.get("/users", AuthMiddleware, (req, res) => {getUserController.showUsers(req, res)});
 

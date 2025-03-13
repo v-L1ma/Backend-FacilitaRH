@@ -1,5 +1,5 @@
 import { hash } from "bcryptjs";
-import { prisma } from "../utils/prisma";
+import { prisma } from "../../utils/prisma";
 import { Request, Response } from "express";
 
 export class CreateUserController {

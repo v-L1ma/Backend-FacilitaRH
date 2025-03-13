@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { prisma } from "../utils/prisma";
+import { prisma } from  "../../utils/prisma";
 
 export class DeleteVacancyController {
   async delete(req: Request, res: Response): Promise<Response> {

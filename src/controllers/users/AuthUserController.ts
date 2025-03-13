@@ -1,5 +1,5 @@
 import { compare } from "bcryptjs";
-import { prisma } from "../utils/prisma";
+import { prisma } from "../../utils/prisma"; 
 import { Request, Response } from "express";
 import { sign } from "jsonwebtoken";
 import dotenv from "dotenv";

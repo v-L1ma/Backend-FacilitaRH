@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { prisma } from "../utils/prisma";
+import { prisma } from  "../../utils/prisma";
 
 export class CreateVacancyController{
     async create(req:Request, res:Response):Promise<Response>{

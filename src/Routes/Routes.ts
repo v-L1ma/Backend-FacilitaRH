@@ -1,14 +1,14 @@
 import { Router } from "express";
-import { CreateUserController } from "../controller/CreateUserController";
-import { GetUserController } from "../controller/GetUserController";
-import { AuthUserController } from "../controller/AuthUserController";
+import { CreateUserController } from "../controllers/users/CreateUserController";
+import { GetUserController } from "../controllers/users/GetUserController";  
+import { AuthUserController } from "../controllers/users/AuthUserController"; 
 import { AuthMiddleware } from "../middleware/auth";
-import { CreateApplicationController } from "../controller/CreateApplicationController";
-import { GetApplicationsController } from "../controller/GetApplicationsController";
-import { CreateVacancyController } from "../controller/CreateVacancyController";
-import { GetVacancyController } from "../controller/GetVacancyControlller";
-import { GetVacancyInfoController } from "../controller/GetVacancyInfoController";
-import { DeleteVacancyController } from "../controller/DeleteVacancyController";
+import { CreateApplicationController } from "../controllers/applications/CreateApplicationController";
+import { GetApplicationsController } from "../controllers/applications/GetApplicationsController";
+import { CreateVacancyController } from "../controllers/vacancies/CreateVacancyController"; 
+import { GetVacancyController } from "../controllers/vacancies/GetVacancyControlller"; 
+import { GetVacancyInfoController } from "../controllers/vacancies/GetVacancyInfoController"; 
+import { DeleteVacancyController } from "../controllers/vacancies/DeleteVacancyController"; 
 
 const createUserController = new CreateUserController();
 const getUserController = new GetUserController();
@@ -28,9 +28,9 @@ router.get("/users", AuthMiddleware, (req, res) => {getUserController.showUsers(
 
 router.post("/users/auth", (req, res) => {authUserController.authenticate(req, res)});
 
-router.post("/apply/:vacancyID", (req,res)=>{createApplicationController.apply(req,res)});
+router.post("/applications/:vacancyID", (req,res)=>{createApplicationController.apply(req,res)});
 
-router.get("/applications", (req,res)=>{getApplicationsController.get(req,res)});
+router.get("/applications/:vacancyID", (req,res)=>{getApplicationsController.get(req,res)});
 
 router.post("/vacancies", (req,res)=>{createVacancyController.create(req,res)});
 

@@ -9,6 +9,7 @@ import { CreateVacancyController } from "../controllers/vacancies/CreateVacancyC
 import { GetVacancyController } from "../controllers/vacancies/GetVacancyControlller"; 
 import { GetVacancyInfoController } from "../controllers/vacancies/GetVacancyInfoController"; 
 import { DeleteVacancyController } from "../controllers/vacancies/DeleteVacancyController"; 
+import { GetStatisticsController } from "../controllers/statistics/getStatisticsController";
 
 const createUserController = new CreateUserController();
 const getUserController = new GetUserController();
@@ -19,6 +20,7 @@ const createVacancyController = new CreateVacancyController();
 const getVacancyController = new GetVacancyController();
 const getVacancyInfoController = new GetVacancyInfoController();
 const deleteVacancyController = new DeleteVacancyController();
+const getStatisticsController = new GetStatisticsController();
 
 export const router = Router();
 
@@ -39,3 +41,5 @@ router.get("/vacancies", (req,res)=>{getVacancyController.get(req,res)});
 router.get("/vacancies/:vacancyID", (req,res)=>{getVacancyInfoController.get(req,res)});
 
 router.delete("/vacancies/:vacancyID", (req,res)=>{deleteVacancyController.delete(req,res)});
+
+router.get("/statistics", (req,res)=>{getStatisticsController.get(req,res)})

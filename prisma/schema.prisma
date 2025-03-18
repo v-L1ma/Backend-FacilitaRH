@@ -55,4 +55,6 @@ model Vacancy {
   turno String
   local String
   endereco String
+  dataAbertura String
+  dataFechamento String
 }

@@ -20,7 +20,10 @@ export class CreateVacancyController{
             contrato,
             turno,
             local,
-            endereco} = req.body;
+            endereco,
+            dataAbertura,
+            dataFechamento
+        } = req.body;
 
     try {
 
@@ -37,7 +40,9 @@ export class CreateVacancyController{
                 contrato,
                 turno,
                 local,
-                endereco
+                endereco,
+                dataAbertura,
+                dataFechamento
             }
         });
 

@@ -5,52 +5,31 @@ export class GetStatisticsController {
   async get(req: Request, res: Response) {
     const vacancies = await prisma.vacancy.findMany();
 
-    const vacanciesOpen: number = vacancies.length;
+    const candidates = await prisma.application.findMany();
 
     let tempoMedio: number;
-    let tempoTotal:number = 0;
-    let vagaEmAtraso:number = 0;
+    let tempoTotal: number = 0;
+    let vagaEmAtraso: number = 0;
 
     for (let i = 0; i < vacancies.length; i++) {
-      const dataAbertura: string = vacancies[i].dataAbertura;
-      const dataFechamento: string = vacancies[i].dataFechamento;
+      const dataAbertura = new Date(vacancies[i].dataAbertura);
+      const dataFechamento = new Date(vacancies[i].dataFechamento);
 
-      let anos:number,meses:number,dias:number;
+      const diferencaMs = dataFechamento.getTime() - dataAbertura.getTime();
 
-      const [diaAbertura, mesAbertura, anoAbertura] = dataAbertura.split("-");
-      const [diaFechamento, mesFechamento, anoFechamento] =
-        dataFechamento.split("-");
+      const tempoDessaVaga = diferencaMs / (1000 * 60 * 60 * 24);
 
-      if (Number(anoAbertura) > Number(anoFechamento)) {
-        anos = Number(anoAbertura) - Number(anoFechamento);
-      } else {
-        anos = Number(anoFechamento) - Number(anoAbertura);
-      }
-
-      if (Number(mesAbertura) > Number(mesFechamento)) {
-        meses = Number(mesAbertura) - Number(mesFechamento);
-      } else {
-        meses = Number(mesFechamento) - Number(mesAbertura);
-      }
-
-      if (Number(diaAbertura) > Number(diaFechamento)) {
-        dias = Number(diaAbertura) - Number(diaFechamento);
-      } else {
-        dias = Number(diaFechamento) - Number(diaAbertura);
-      }
-
-      const tempoDessaVaga = dias+(meses*30)+(anos*365);
-
-      tempoTotal = tempoTotal+tempoDessaVaga;
-
-      if(tempoDessaVaga>30){
-        vagaEmAtraso++
-      }
+      tempoTotal += tempoDessaVaga;
 
     }
 
-    tempoMedio=tempoTotal/vacancies.length;
+    tempoMedio = tempoTotal / vacancies.length;
 
-    return res.status(200).json({tempoMedio:tempoMedio,vacanciesOpen:vacanciesOpen,vagaEmAtraso:vagaEmAtraso})
+    return res
+      .status(200)
+      .json({
+        tempoMedio: tempoMedio,
+        vacancies: vacancies,
+      });
   }
 }

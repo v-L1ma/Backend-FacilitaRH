@@ -9,7 +9,19 @@ export class GetStatisticsController {
 
     let tempoMedio: number;
     let tempoTotal: number = 0;
-    let vagaEmAtraso: number = 0;
+    let janeiro:number = 0;
+    let fevereiro:number = 0;
+    let marco:number = 0;
+    let abril:number = 0;
+    let maio:number = 0;
+    let junho:number = 0;
+    let julho:number = 0;
+    let agosto:number = 0;
+    let setembro:number = 0;
+    let outubro:number = 0;
+    let novembro:number = 0;
+    let dezembro:number = 0;
+
 
     for (let i = 0; i < vacancies.length; i++) {
       const dataAbertura = new Date(vacancies[i].dataAbertura);
@@ -20,9 +32,80 @@ export class GetStatisticsController {
       const tempoDessaVaga = diferencaMs / (1000 * 60 * 60 * 24);
 
       tempoTotal += tempoDessaVaga;
+
+      switch (dataAbertura.getMonth() + 1) {
+        case 1:
+          janeiro++;
+          break;
+      
+        case 2:
+          fevereiro++;
+          break;
+      
+        case 3:
+          marco++;
+          break;
+      
+        case 4:
+          abril++;
+          break;
+      
+        case 5:
+          maio++;
+          break;
+      
+        case 6:
+          junho++;  
+          break;
+      
+        case 7:
+          julho++;  
+          break;
+      
+        case 8:
+          agosto++;  
+          break;
+      
+        case 9:
+          setembro++;  
+          break;
+      
+        case 10:
+          outubro++; 
+          break;
+      
+        case 11:
+          novembro++;
+          break;
+      
+        case 12:
+          dezembro++;
+          break;
+      
+        default:
+          break;
+      }
+    
     }
 
     tempoMedio = tempoTotal / vacancies.length;
+
+    const vagasPorMes = [
+      { month: "Janeiro", Vagas: janeiro },
+      { month: "Fevereiro", Vagas: fevereiro },
+      { month: "Marco", Vagas: marco },
+      { month: "Abril", Vagas: abril },
+      { month: "Maio", Vagas: maio },
+      { month: "Junho", Vagas: junho },
+      { month: "Julho", Vagas: julho },
+      { month: "Agosto", Vagas: agosto },
+      { month: "Setembro", Vagas: setembro },
+      { month: "Outubro", Vagas: outubro },
+      { month: "Novembro", Vagas: novembro },
+      { month: "Dezembro", Vagas: dezembro },
+    ]
+
+
 
     const administrativo = vacancies.filter((vaga) =>
       vaga.setor.includes("Administrativo")
@@ -86,6 +169,7 @@ export class GetStatisticsController {
       tempoMedio: tempoMedio,
       vacancies: vacancies,
       VagasPorSetor: VagasPorSetor,
+      vagasPorMes: vagasPorMes,
     });
   }
 }

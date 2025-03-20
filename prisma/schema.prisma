@@ -43,6 +43,7 @@ model Application {
 
 model Vacancy {
   id Int @id @default(autoincrement())
+  status String
   titulo String
   qtdeVagas Int
   descricao String

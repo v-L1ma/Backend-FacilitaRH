@@ -10,6 +10,7 @@ export class CreateVacancyController{
 
         const { 
             titulo,
+            status,
             qtdeVagas,
             descricao,
             setor,
@@ -30,6 +31,7 @@ export class CreateVacancyController{
         const vacancy = await prisma.vacancy.create({
             data: {
                 titulo,
+                status,
                 qtdeVagas,
                 descricao,
                 setor,

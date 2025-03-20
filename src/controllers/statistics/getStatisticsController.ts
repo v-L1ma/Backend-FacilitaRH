@@ -20,16 +20,72 @@ export class GetStatisticsController {
       const tempoDessaVaga = diferencaMs / (1000 * 60 * 60 * 24);
 
       tempoTotal += tempoDessaVaga;
-
     }
 
     tempoMedio = tempoTotal / vacancies.length;
 
-    return res
-      .status(200)
-      .json({
-        tempoMedio: tempoMedio,
-        vacancies: vacancies,
-      });
+    const administrativo = vacancies.filter((vaga) =>
+      vaga.setor.includes("Administrativo")
+    );
+    const financeiro = vacancies.filter((vaga) =>
+      vaga.setor.includes("Financeiro")
+    );
+    const comercial = vacancies.filter((vaga) =>
+      vaga.setor.includes("Comercial")
+    );
+    const vendas = vacancies.filter((vaga) => vaga.setor.includes("Vendas"));
+    const marketing = vacancies.filter((vaga) =>
+      vaga.setor.includes("Marketing")
+    );
+    const tecnologiaDaInformacao = vacancies.filter((vaga) =>
+      vaga.setor.includes("Tecnologia da Informação")
+    );
+    const atendimentoAoCliente = vacancies.filter((vaga) =>
+      vaga.setor.includes("Atendimento ao Cliente")
+    );
+    const logistica = vacancies.filter((vaga) =>
+      vaga.setor.includes("Logística")
+    );
+    const juridico = vacancies.filter((vaga) =>
+      vaga.setor.includes("Jurídico")
+    );
+    const producaoManufatura = vacancies.filter((vaga) =>
+      vaga.setor.includes("Produção / Manufatura")
+    );
+    const comprasSuprimentos = vacancies.filter((vaga) =>
+      vaga.setor.includes("Compras / Suprimentos")
+    );
+    const almoxarifado = vacancies.filter((vaga) =>
+      vaga.setor.includes("Almoxarifado")
+    );
+    const qualidade = vacancies.filter((vaga) =>
+      vaga.setor.includes("Qualidade")
+    );
+    const segurancaDoTrabalho = vacancies.filter((vaga) =>
+      vaga.setor.includes("Segurança do Trabalho")
+    );
+
+    const VagasPorSetor = [
+      { setor: "Administrativo", vagas: administrativo.length, fill: "var(--color-Administrativo)" },
+      { setor: "Financeiro", vagas: financeiro.length, fill: "var(--color-Financeiro)" },
+      { setor: "Comercial", vagas: comercial.length, fill: "var(--color-Comercial)" },
+      { setor: "Vendas", vagas: vendas.length, fill: "var(--color-Vendas)" },
+      { setor: "Marketing", vagas: marketing.length, fill: "var(--color-Marketing)" },
+      { setor: "Tecnologia da Informação", vagas: tecnologiaDaInformacao.length, fill: "var(--color-TI)" },
+      { setor: "Atendimento ao Cliente", vagas: atendimentoAoCliente.length, fill: "var(--color-Atendimento)" },
+      { setor: "Logística", vagas: logistica.length, fill: "var(--color-Logistica)" },
+      { setor: "Jurídico", vagas: juridico.length, fill: "var(--color-Juridico)" },
+      { setor: "Produção / Manufatura", vagas: producaoManufatura.length, fill: "var(--color-Producao)" },
+      { setor: "Compras / Suprimentos", vagas: comprasSuprimentos.length, fill: "var(--color-Compras)" },
+      { setor: "Almoxarifado", vagas: almoxarifado.length, fill: "var(--color-Almoxarifado)" },
+      { setor: "Qualidade", vagas: qualidade.length, fill: "var(--color-Qualidade)" },
+      { setor: "Segurança do Trabalho", vagas: segurancaDoTrabalho.length, fill: "var(--color-Seguranca)" },
+    ];
+
+    return res.status(200).json({
+      tempoMedio: tempoMedio,
+      vacancies: vacancies,
+      VagasPorSetor: VagasPorSetor,
+    });
   }
 }

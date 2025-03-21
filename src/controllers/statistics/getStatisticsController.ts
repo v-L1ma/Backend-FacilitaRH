@@ -9,19 +9,18 @@ export class GetStatisticsController {
 
     let tempoMedio: number;
     let tempoTotal: number = 0;
-    let janeiro:number = 0;
-    let fevereiro:number = 0;
-    let marco:number = 0;
-    let abril:number = 0;
-    let maio:number = 0;
-    let junho:number = 0;
-    let julho:number = 0;
-    let agosto:number = 0;
-    let setembro:number = 0;
-    let outubro:number = 0;
-    let novembro:number = 0;
-    let dezembro:number = 0;
-
+    let janeiro: number = 0;
+    let fevereiro: number = 0;
+    let marco: number = 0;
+    let abril: number = 0;
+    let maio: number = 0;
+    let junho: number = 0;
+    let julho: number = 0;
+    let agosto: number = 0;
+    let setembro: number = 0;
+    let outubro: number = 0;
+    let novembro: number = 0;
+    let dezembro: number = 0;
 
     for (let i = 0; i < vacancies.length; i++) {
       const dataAbertura = new Date(vacancies[i].dataAbertura);
@@ -37,75 +36,72 @@ export class GetStatisticsController {
         case 1:
           janeiro++;
           break;
-      
+
         case 2:
           fevereiro++;
           break;
-      
+
         case 3:
           marco++;
           break;
-      
+
         case 4:
           abril++;
           break;
-      
+
         case 5:
           maio++;
           break;
-      
+
         case 6:
-          junho++;  
+          junho++;
           break;
-      
+
         case 7:
-          julho++;  
+          julho++;
           break;
-      
+
         case 8:
-          agosto++;  
+          agosto++;
           break;
-      
+
         case 9:
-          setembro++;  
+          setembro++;
           break;
-      
+
         case 10:
-          outubro++; 
+          outubro++;
           break;
-      
+
         case 11:
           novembro++;
           break;
-      
+
         case 12:
           dezembro++;
           break;
-      
+
         default:
           break;
       }
-    
     }
 
     tempoMedio = tempoTotal / vacancies.length;
 
     const vagasPorMes = [
-      { month: "Janeiro", Vagas: janeiro },
-      { month: "Fevereiro", Vagas: fevereiro },
-      { month: "Marco", Vagas: marco },
-      { month: "Abril", Vagas: abril },
-      { month: "Maio", Vagas: maio },
-      { month: "Junho", Vagas: junho },
-      { month: "Julho", Vagas: julho },
-      { month: "Agosto", Vagas: agosto },
-      { month: "Setembro", Vagas: setembro },
-      { month: "Outubro", Vagas: outubro },
-      { month: "Novembro", Vagas: novembro },
-      { month: "Dezembro", Vagas: dezembro },
-    ]
-
-
+      { mes: "Janeiro", Vagas: janeiro },
+      { mes: "Fevereiro", Vagas: fevereiro },
+      { mes: "Marco", Vagas: marco },
+      { mes: "Abril", Vagas: abril },
+      { mes: "Maio", Vagas: maio },
+      { mes: "Junho", Vagas: junho },
+      { mes: "Julho", Vagas: julho },
+      { mes: "Agosto", Vagas: agosto },
+      { mes: "Setembro", Vagas: setembro },
+      { mes: "Outubro", Vagas: outubro },
+      { mes: "Novembro", Vagas: novembro },
+      { mes: "Dezembro", Vagas: dezembro },
+    ];
 
     const administrativo = vacancies.filter((vaga) =>
       vaga.setor.includes("Administrativo")
@@ -149,20 +145,72 @@ export class GetStatisticsController {
     );
 
     const VagasPorSetor = [
-      { setor: "Administrativo", vagas: administrativo.length, fill: "var(--color-Administrativo)" },
-      { setor: "Financeiro", vagas: financeiro.length, fill: "var(--color-Financeiro)" },
-      { setor: "Comercial", vagas: comercial.length, fill: "var(--color-Comercial)" },
+      {
+        setor: "Administrativo",
+        vagas: administrativo.length,
+        fill: "var(--color-Administrativo)",
+      },
+      {
+        setor: "Financeiro",
+        vagas: financeiro.length,
+        fill: "var(--color-Financeiro)",
+      },
+      {
+        setor: "Comercial",
+        vagas: comercial.length,
+        fill: "var(--color-Comercial)",
+      },
       { setor: "Vendas", vagas: vendas.length, fill: "var(--color-Vendas)" },
-      { setor: "Marketing", vagas: marketing.length, fill: "var(--color-Marketing)" },
-      { setor: "Tecnologia da Informação", vagas: tecnologiaDaInformacao.length, fill: "var(--color-TI)" },
-      { setor: "Atendimento ao Cliente", vagas: atendimentoAoCliente.length, fill: "var(--color-Atendimento)" },
-      { setor: "Logística", vagas: logistica.length, fill: "var(--color-Logistica)" },
-      { setor: "Jurídico", vagas: juridico.length, fill: "var(--color-Juridico)" },
-      { setor: "Produção / Manufatura", vagas: producaoManufatura.length, fill: "var(--color-Producao)" },
-      { setor: "Compras / Suprimentos", vagas: comprasSuprimentos.length, fill: "var(--color-Compras)" },
-      { setor: "Almoxarifado", vagas: almoxarifado.length, fill: "var(--color-Almoxarifado)" },
-      { setor: "Qualidade", vagas: qualidade.length, fill: "var(--color-Qualidade)" },
-      { setor: "Segurança do Trabalho", vagas: segurancaDoTrabalho.length, fill: "var(--color-Seguranca)" },
+      {
+        setor: "Marketing",
+        vagas: marketing.length,
+        fill: "var(--color-Marketing)",
+      },
+      {
+        setor: "Tecnologia da Informação",
+        vagas: tecnologiaDaInformacao.length,
+        fill: "var(--color-TI)",
+      },
+      {
+        setor: "Atendimento ao Cliente",
+        vagas: atendimentoAoCliente.length,
+        fill: "var(--color-AtendimentoAoCliente)",
+      },
+      {
+        setor: "Logística",
+        vagas: logistica.length,
+        fill: "var(--color-Logistica)",
+      },
+      {
+        setor: "Jurídico",
+        vagas: juridico.length,
+        fill: "var(--color-Juridico)",
+      },
+      {
+        setor: "Produção / Manufatura",
+        vagas: producaoManufatura.length,
+        fill: "var(--color-ProducaoManufatura)",
+      },
+      {
+        setor: "Compras / Suprimentos",
+        vagas: comprasSuprimentos.length,
+        fill: "var(--color-ComprasSuprimentos)",
+      },
+      {
+        setor: "Almoxarifado",
+        vagas: almoxarifado.length,
+        fill: "var(--color-Almoxarifado)",
+      },
+      {
+        setor: "Qualidade",
+        vagas: qualidade.length,
+        fill: "var(--color-Qualidade)",
+      },
+      {
+        setor: "Segurança do Trabalho",
+        vagas: segurancaDoTrabalho.length,
+        fill: "var(--color-SegurancaDoTrabalho)",
+      },
     ];
 
     return res.status(200).json({

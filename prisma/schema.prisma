@@ -40,7 +40,6 @@ model Application {
   instituicao String
   dataInicioEstudo String
   dataTerminoEstudos String
-  idiomas String[]
 }
 
 model Vacancy {

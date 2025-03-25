@@ -218,6 +218,7 @@ export class GetStatisticsController {
       vacancies: vacancies,
       VagasPorSetor: VagasPorSetor,
       vagasPorMes: vagasPorMes,
+      candidates: candidates,
     });
   }
 }

@@ -23,6 +23,6 @@
   "author": "Vinicius Lima <102876820+v-L1ma@users.noreply.github.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "ts-node-dev --respawn --transpile-only --files src/index.ts"
+    "start": "ts-node-dev --respawn --transpile-only --files src/index.ts"
   }
 }

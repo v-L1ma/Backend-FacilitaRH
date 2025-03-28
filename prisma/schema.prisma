@@ -28,6 +28,7 @@ model Application {
   telefone String
   dataNasc String
   cpf String @unique
+  resumoProfissional String
   cargo String
   empresa String
   dataInicioEmpresa String
